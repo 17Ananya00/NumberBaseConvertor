@@ -1,0 +1,69 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	
++++ b/src/Main.java	(date 1648022028000)
+@@ -2,7 +2,7 @@
+ import java.util.*;
+ 
+ public class Main {
+-    public static BigInteger sourceBase;
++    public static int sourceBase;
+     public static int destBase;
+     static Scanner scn = new Scanner(System.in);
+     public static int n;
+@@ -14,27 +14,27 @@
+         boolean condition2 = true;
+ 
+         System.out.println("Enter two numbers in format: {source base} {target base} (To quit type /exit)");
+-        CharSequence sourceBaseChar = scn.nextLine();
+-        String sourBaseString = (String) sourceBaseChar;
++      String sourBaseString = scn.nextLine();
++        sourceBase = Integer.valueOf(sourBaseString) ;
++
+ 
+ 
+ 
+         while (condition2) {
+             if(Objects.equals(sourBaseString, "/exit")){
++                condition2 = false;
+                 break;
+ 
+             } else {
+-                
+-                int sourceBaseInt = Integer.parseInt(sourBaseString);
+-              sourceBase = BigInteger.valueOf(sourceBaseInt);
+ 
+ 
+-                destBase = scn.nextInt();
++              destBase = scn.nextInt();
+ 
+ 
+ 
+ 
+ 
++
+             /*
+             if(sourceBase == /exit){
+             break;
+@@ -66,7 +66,7 @@
+             System.out.println("Conversion result: " + value);
+ 
+         }
+-    public static int getValue(int n, BigInteger src, int dest) {
++    public static int getValue(int n, int src, int dest) {
+         int decimalValue = anyBaseToDecimal(n, src); //Converting to decimal
+         int finalBaseValue = decimalToAnyBase(decimalValue, dest); // Converting to destination base
+         return finalBaseValue;
+@@ -85,7 +85,7 @@
+         return rv; //Final converted number
+     }
+     // Function for converting number from base-b number system to decimal
+-    public static int anyBaseToDecimal(int n, BigInteger b) {
++    public static int anyBaseToDecimal(int n, int b) {
+         int rv = 0;
+         int p = 0;
+         while (n > 0)
